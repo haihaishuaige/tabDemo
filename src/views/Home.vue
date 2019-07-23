@@ -3,7 +3,7 @@
     <el-container>
       <el-aside width="200px">
         <el-menu
-          default-active="2"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           background-color="#545c64"
           text-color="#fff"
@@ -26,7 +26,10 @@
               v-for="(item2,index2) in item.children"
               :key='index2'
             >
-              <el-menu-item v-if='item2.meta.title !== "webcome"' :index="item2.path"><span>{{item2.meta.title}}</span> </el-menu-item>
+              <el-menu-item
+                v-if='item2.meta.title !== "webcome"'
+                :index="item2.path"
+              ><span>{{item2.meta.title}}</span> </el-menu-item>
             </div>
 
           </el-submenu>
@@ -62,8 +65,7 @@ export default {
       routes
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
@@ -93,5 +95,6 @@ export default {
 .el-container {
   height: 100%;
   margin-bottom: 40px;
+  position: relative;
 }
 </style>
